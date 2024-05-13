@@ -28,8 +28,15 @@ class QR:
         binList.insert(0,m)
         return binList
 
+    def __init__(self,version:int) -> None:
+        self.version = version
+        self.size = 4*version +17
+        
     
-code= "01234567"
+    def setBitColor(self, x:int, y:int, color:bool):
+        pass
+
+code= "76398659789879"
 mainBinList = QR.binarySequencing(code)
 
 print((QR.encodeData(code,"ECI")))
