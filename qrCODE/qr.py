@@ -36,14 +36,19 @@ class QR:
         self.version = version
         self.mode = encodeMode
         self.size = 4 * version + 17
+        self.code = code
         self.arr = np.zeros((self.size, self.size))
         self.encodeData("128348728374", encodeMode)
         
     def setBitColor(self, x:int, y:int, color:int) -> None:
         self.arr[x][y] = color
 
-QR(1, "ECI")
 code = "76398659789879"
+
+newQR  = QR(1, "ECI",code)
+print(newQR.encodeData(newQR.code,newQR.mode))
+
+
 # mainBinList = QR.binarySequencing(code)
 # print((QR.encodeData(code,"ECI")))
 
@@ -52,7 +57,8 @@ code = "76398659789879"
 
 
 arr = np.zeros((3,3),)
-# print(arr)
+
+#QR testing
 for i in range(3):
     for j in range(3):
         arr[i][j] = random.randrange(2)
